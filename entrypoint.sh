@@ -100,8 +100,8 @@ echo "Done: will output results at $OUTPUT_FILE"
 cd ${GITHUB_WORKSPACE} || exit 1
 git config --global --add safe.directory ${GITHUB_WORKSPACE} || exit 1
 
-echo "Starting a static analysis"
-trivy fs --output $OUTPUT_FILE --format cyclonedx .
+echo "Generating SBOM"
+trivy fs --output "$OUTPUT_FILE" --format cyclonedx .
 echo "Done"
 
 echo "Uploading results to Datadog"
